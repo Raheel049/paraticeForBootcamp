@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 30px;
+    top: 50px;
+    margin: 20px auto;
+    background-color: antiquewhite;
+
+}
+
+
+.absolutePos{
+    width: 100%;
+    height: 50vh;
+    border: 1px solid black;
+    /* position: relative; */
+}
+
+.icon{
+    position: absolute;
+    color: rgb(158, 150, 150);
+    left: 30px;
+    /* bottom: 10px; */
+
+}
+
+.carImg{
+    width: 30%;
+    height: 40%;
+
+}

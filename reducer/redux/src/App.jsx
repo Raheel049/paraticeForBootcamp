@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from "react-redux"
 import { increment } from './slicce/counter'
 import SocketComponent from './socket/socket'
 import UseRef from './useRef'
+import PositionsOfCss from './components/positionsOfCss'
 
 function App() {
   const count = useSelector((state) => state.myCounter.value)
@@ -17,6 +18,8 @@ function App() {
         <SocketComponent />
 
         <UseRef />
+
+        <PositionsOfCss />
       </div>
     </>
   )
