@@ -233,3 +233,9 @@ function User(name, age){
 const user1 = new User("Raheel",21)
 console.log(user1.name,user1.age)
 
+const name = "Raheel"
+
+for(i = 0; i <= name.length; i++){
+    console.log(name[i]);
+}
+
