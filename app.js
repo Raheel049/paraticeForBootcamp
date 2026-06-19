@@ -53,7 +53,8 @@ console.log(sum(10,23,45,56))
 // const newObj = {
 //     ...objOne, 
 //     education : "BSCS"
-// } //shallow copy is ma nested obj ki value copy nhi hoti sarif memory address copy hota ha
+// } //shallow copy is ma nested obj ki value copy nhi hoti sarif memory address copy hota ha. jab hum ek object ko kisi variable ma copy kary ka bad 
+        // copy  kiye huway obj ki value change kary ga to orginal object ki value bi change ho jay gii Q ka memory address same tha 
 
 // console.log("New obj", newObj);
 
@@ -70,6 +71,12 @@ console.log(sum(10,23,45,56))
 
 // console.log("objOne",objOne)
 // const newObj = structuredClone(objOne) //for coyp the obj with out overRide "deep copy"
+
+// deepCopy ma address chage hota ha is liye orignalObj ki value chage nhi hui ha bs jo new variable banaya ha us ka nested obj ma chage aya ha 
+//const deepCopy = JSON.parse(JSON.stringify(objOne));
+//deepCopy.address.city = "Lahore"
+//console.log(objOne.address.city) output = Karachi
+//console.log(deepCopy.address.city) output = Lahore
 
 
 // newObj.university = "SMIU"
