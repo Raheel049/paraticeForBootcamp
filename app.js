@@ -246,3 +246,44 @@ for(i = 0; i <= name.length; i++){
     console.log(name[i]);
 }
 
+// 1. Object ke andar Callback ki Misal (Regular vs Arrow)
+// Sochein ke hamare paas aik user object hai. Jab hum setTimeout jese callback use karte hain, to this ka context kho jata hai.
+
+const user = {
+  name: "Ali",
+  sayLater: function() {
+    // Yahan 'this' 'user' object ko point kar raha hai
+    console.log("Pehle:", this.name); // Pehle: Ali
+
+    setTimeout(function() {
+      // Regular function ka apna 'this' hota hai, jo window ya undefined ban jata hai
+      console.log("Baad mein (Regular):", this.name); 
+    }, 1000);
+  }
+};
+
+user.sayLater();
+// Output: 
+// Pehle: Ali
+// Baad mein (Regular): undefined (Context lose ho gaya!)
+
+
+Arrow Function ke sath (Context theek rehta hai):
+JavaScript
+const user = {
+  name: "Ali",
+  sayLater: function() {
+    console.log("Pehle:", this.name); // Pehle: Ali
+
+    setTimeout(() => {
+      // Arrow function ka apna 'this' nahi hota, 
+      // yeh apne parent (sayLater) se 'this' inherit karta hai
+      console.log("Baad mein (Arrow):", this.name); 
+    }, 1000);
+  }
+};
+
+user.sayLater();
+// Output: 
+// Pehle: Ali
+// Baad mein (Arrow): Ali (Bilkul theek, naam print ho gaya!)
