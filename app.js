@@ -53,7 +53,8 @@ console.log(sum(10,23,45,56))
 // const newObj = {
 //     ...objOne, 
 //     education : "BSCS"
-// } //shallow copy is ma nested obj ki value copy nhi hoti sarif memory address copy hota ha
+// } //shallow copy is ma nested obj ki value copy nhi hoti sarif memory address copy hota ha. jab hum ek object ko kisi variable ma copy kary ka bad 
+        // copy  kiye huway obj ki value change kary ga to orginal object ki value bi change ho jay gii Q ka memory address same tha 
 
 // console.log("New obj", newObj);
 
@@ -70,6 +71,12 @@ console.log(sum(10,23,45,56))
 
 // console.log("objOne",objOne)
 // const newObj = structuredClone(objOne) //for coyp the obj with out overRide "deep copy"
+
+// deepCopy ma address chage hota ha is liye orignalObj ki value chage nhi hui ha bs jo new variable banaya ha us ka nested obj ma chage aya ha 
+//const deepCopy = JSON.parse(JSON.stringify(objOne));
+//deepCopy.address.city = "Lahore"
+//console.log(objOne.address.city) output = Karachi
+//console.log(deepCopy.address.city) output = Lahore
 
 
 // newObj.university = "SMIU"
@@ -239,7 +246,51 @@ for(i = 0; i <= name.length; i++){
     console.log(name[i]);
 }
 
+<<<<<<< HEAD
 function Admin(name, age){
     this.name = name;
     this.email = email
 }
+=======
+// 1. Object ke andar Callback ki Misal (Regular vs Arrow)
+// Sochein ke hamare paas aik user object hai. Jab hum setTimeout jese callback use karte hain, to this ka context kho jata hai.
+
+const user = {
+  name: "Ali",
+  sayLater: function() {
+    // Yahan 'this' 'user' object ko point kar raha hai
+    console.log("Pehle:", this.name); // Pehle: Ali
+
+    setTimeout(function() {
+      // Regular function ka apna 'this' hota hai, jo window ya undefined ban jata hai
+      console.log("Baad mein (Regular):", this.name); 
+    }, 1000);
+  }
+};
+
+user.sayLater();
+// Output: 
+// Pehle: Ali
+// Baad mein (Regular): undefined (Context lose ho gaya!)
+
+
+Arrow Function ke sath (Context theek rehta hai):
+JavaScript
+const user = {
+  name: "Ali",
+  sayLater: function() {
+    console.log("Pehle:", this.name); // Pehle: Ali
+
+    setTimeout(() => {
+      // Arrow function ka apna 'this' nahi hota, 
+      // yeh apne parent (sayLater) se 'this' inherit karta hai
+      console.log("Baad mein (Arrow):", this.name); 
+    }, 1000);
+  }
+};
+
+user.sayLater();
+// Output: 
+// Pehle: Ali
+// Baad mein (Arrow): Ali (Bilkul theek, naam print ho gaya!)
+>>>>>>> a6894bf5dd484544f21c841a767b69326ef160b2
