@@ -239,3 +239,7 @@ for(i = 0; i <= name.length; i++){
     console.log(name[i]);
 }
 
+function Admin(name, age){
+    this.name = name;
+    this.email = email
+}
